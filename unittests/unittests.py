@@ -99,7 +99,11 @@ class TestArgmax(TestCase):
         # create an array in the data section
         #raise NotImplementedError("TODO")
         # TODO
+<<<<<<< HEAD
         array0 = t.array([-34, 884, -1076, 74, 394])
+=======
+        array0 = t.array([5, 1, 0, -6, 2, 9])
+>>>>>>> 08c012d0e7787f0abbea6a1bb7b7bfeba487954b
         # load address of the array into register a0
         # TODO
         t.input_array("a0", array0)
@@ -111,7 +115,11 @@ class TestArgmax(TestCase):
         t.call("argmax")
         # check that the register a0 contains the correct output
         # TODO
+<<<<<<< HEAD
         t.check_scalar("a0", 1)
+=======
+        t.check_scalar("a0", 5)
+>>>>>>> 08c012d0e7787f0abbea6a1bb7b7bfeba487954b
         # generate the `assembly/TestArgmax_test_simple.s` file and run it through venus
         t.execute()
 
@@ -134,8 +142,13 @@ class TestDot(TestCase):
         # create arrays in the data section
         #raise NotImplementedError("TODO")
         # TODO
+<<<<<<< HEAD
         array0 = t.array([9, -10, 11, -12])
         array1 = t.array([1, 2, 3, 4])
+=======
+        array0 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        array1 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+>>>>>>> 08c012d0e7787f0abbea6a1bb7b7bfeba487954b
         # load array addresses into argument registers
         # TODO
         t.input_array("a0", array0)
@@ -149,7 +162,11 @@ class TestDot(TestCase):
         t.call("dot")
         # check the return value
         # TODO
+<<<<<<< HEAD
         t.check_scalar("a0", -26)
+=======
+        t.check_scalar("a0", 285)
+>>>>>>> 08c012d0e7787f0abbea6a1bb7b7bfeba487954b
         t.execute()
     def test_length_0(self):
         t = AssemblyTest(self, "dot.s")

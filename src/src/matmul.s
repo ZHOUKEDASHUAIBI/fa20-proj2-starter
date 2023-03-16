@@ -44,19 +44,11 @@ matmul:
     add s4, a4, x0
     add s5, a5, x0
     add s6, a6, x0
-<<<<<<< HEAD
-    bge x0, s1, Exit1
-    bge x0, s2, Exit1
-    bge x0, s4, Exit2
-    bge x0, s5, Exit2
-    bne s2, s4, Exit3
-=======
     bge x0, a1, Exit1
     bge x0, a2, Exit1
     bge x0, a4, Exit2
     bge x0, a5, Exit2
     bne a2, a4, Exit3
->>>>>>> 08c012d0e7787f0abbea6a1bb7b7bfeba487954b
     add t0, x0, x0
     add t1, x0, x0
     add t2, x0, x0      #offset of return matrix
@@ -69,27 +61,6 @@ inner_loop_start:
     beq t1, s5, inner_loop_end
     addi sp, sp, -16
     sw ra, 0(sp)
-<<<<<<< HEAD
-    sw t0, 4(sp)
-    sw t1, 8(sp)
-    sw t2, 12(sp)
-    mv t3, t0
-    mv t4, s2
-    mul t3, t3, t4
-    slli t3, t3, 2
-    add a0, s0, t3       #pointer to v0
-    mv t3, t1
-    slli t3, t3, 2
-    add a1, s3, t3       #pointer to v1
-    mv a2, s2            #length of vector
-    addi a3, x0, 1       #stride of v0
-    mv a4, s5            #stride of v1
-    jal dot
-    lw ra, 0(sp)
-    lw t0, 4(sp)
-    lw t1, 8(sp)
-    lw t2, 12(sp)
-=======
     sw t1, 4(sp)
     sw t2, 8(sp)
     sw t0, 12(sp)
@@ -108,7 +79,6 @@ inner_loop_start:
     lw t1, 4(sp)
     lw t2, 8(sp)
     lw t0, 12(sp)
->>>>>>> 08c012d0e7787f0abbea6a1bb7b7bfeba487954b
     addi sp, sp, 16
     slli t3, t2, 2
     add t3, t3, s6
@@ -144,8 +114,4 @@ Exit2:
     
 Exit3:
     li a1, 74
-<<<<<<< HEAD
     j exit2
-=======
-    j exit2
->>>>>>> 08c012d0e7787f0abbea6a1bb7b7bfeba487954b
